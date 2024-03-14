@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Madimi+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message for Farooh</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS styles */
+    #message {
+      opacity: 0;
+      /* Initially hide the message */
+      color: white;
+      /* Set text color to white */
+      font-size: 16px;
+      /* Set font size */
+      margin-top: 20px;
+      /* Add some space at the top */
+      font-family: "Madimi One", sans-serif;
+      /* Change font family */
+      font-weight: 400;
+      font-style: normal;
+      animation: fadeIn 3s ease forwards;
+      /* Add fade-in animation */
+      max-width: 80%;
+      /* Set maximum width */
+      margin: 0 auto;
+      /* Center horizontally */
+    }
+
+    .button-49,
+    .button-49:after {
+      width: 200px;
+      height: 100px;
+      line-height: 78px;
+      font-size: 18px;
+      font-family: 'Bebas Neue', sans-serif;
+      background: linear-gradient(45deg, transparent 5%, #d5c8cb 5%);
+      border: 0;
+      color: #fff;
+      letter-spacing: 3px;
+      box-shadow: 6px 0px 0px #00E6F6;
+      outline: transparent;
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button-49:after {
+      --slice-0: inset(50% 50% 50% 50%);
+      --slice-1: inset(80% -6px 0 0);
+      --slice-2: inset(50% -6px 30% 0);
+      --slice-3: inset(10% -6px 85% 0);
+      --slice-4: inset(40% -6px 43% 0);
+      --slice-5: inset(80% -6px 5% 0);
+
+      content: 'ALTERNATE TEXT';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+      text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+      clip-path: var(--slice-0);
+    }
+
+    .button-49:hover:after {
+      animation: 1s glitch;
+      animation-timing-function: steps(2, end);
+    }
+
+    @keyframes glitch {
+      0% {
+        clip-path: var(--slice-1);
+        transform: translate(-20px, -10px);
+      }
+
+      10% {
+        clip-path: var(--slice-3);
+        transform: translate(10px, 10px);
+      }
+
+      20% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 10px);
+      }
+
+      30% {
+        clip-path: var(--slice-3);
+        transform: translate(0px, 5px);
+      }
+
+      40% {
+        clip-path: var(--slice-2);
+        transform: translate(-5px, 0px);
+      }
+
+      50% {
+        clip-path: var(--slice-3);
+        transform: translate(5px, 0px);
+      }
+
+      60% {
+        clip-path: var(--slice-4);
+        transform: translate(5px, 10px);
+      }
+
+      70% {
+        clip-path: var(--slice-2);
+        transform: translate(-10px, 10px);
+      }
+
+      80% {
+        clip-path: var(--slice-5);
+        transform: translate(20px, -10px);
+      }
+
+      90% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 0px);
+      }
+
+      100% {
+        clip-path: var(--slice-1);
+        transform: translate(0);
+      }
+    }
+
+    @media (max-width: 767px) {
+
+      .button-49,
+      .button-49:after {
+        width: 150px;
+        height: 70px;
+        line-height: 50px;
+        font-size: 14px;
+      }
+
+      #message {
+        font-size: 14px;
+        /* Adjust font size for smaller screens */
+      }
+    }
+
+    /* Animation keyframes for fading in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Animation keyframes for typing effect */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    .typing-animation {
+      animation: typing 3s steps(40) forwards;
+      /* Add typing animation */
+      white-space: nowrap;
+      /* Prevent line breaks */
+      overflow: hidden;
+      /* Hide overflow text */
+      border-right: 2px solid transparent;
+      /* Create blinking cursor */
+      margin-right: 5px;
+      /* Add some space after text */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Button to show the message -->
+  <button class="button-49" role="button" onclick="showMessage()"> Click Farooh </button>
+
+  <!-- Paragraph to display the message -->
+  <p id="message" style="display:none;">
+    <span class="typing-animation">Dear Farooh ❤️ 
+      <br>, there is nothing that can describe what I feel about you,  
+      <br> but it
+      was
+      a wonderful 4 years with you and i hope to <br> continue you know that <br> i can not describe what i feel but i did my
+      best :) ,<br> and I wish you all the best in your life. - Seif</span>
+  </p>
+
+  <script>
+    // JavaScript function to show the message with animation
+    function showMessage() {
+      var messageParagraph = document.getElementById('message');
+      messageParagraph.style.display = 'block';
+    }
+  </script>
+
+</body>
+
+</html>
